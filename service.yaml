@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: puraai-service
+  namespace: pura-ai
+spec:
+  type: ClusterIP
+  selector:
+    app: puraai-api
+  ports:
+    - port: 80
+      targetPort: 3000

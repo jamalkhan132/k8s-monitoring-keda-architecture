@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: puraai-api
+  namespace: pura-ai
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: puraai-api
+  template:
+    metadata:
+      labels:
+        app: puraai-api
+    spec:
+      containers:
+        - name: puraai-api
+          image: your-docker-registry/puraai-api:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
